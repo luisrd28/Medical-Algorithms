@@ -4,6 +4,7 @@ function handleTimeOption(selectedOption) {
     const step1 = document.getElementById('step1');
     const thrombolysisCard = document.getElementById('thrombolysis-card');
     const imageButton = document.getElementById('image-button');
+    const arrowIndicator = document.getElementById('arrow-indicator');
     const ctSection = document.getElementById('ct-scan-section');
 
     history.push('step1');
@@ -15,8 +16,12 @@ function handleTimeOption(selectedOption) {
     if (selectedOption === 'lt4.5') {
         setTimeout(() => {
             thrombolysisCard.classList.add('active');
-            imageButton.classList.add('active');
-            ctSection.classList.add('active');
+            // Animate button/arrow after card appears
+            setTimeout(() => {
+                imageButton.classList.add('active');
+                arrowIndicator.classList.add('active');
+                ctSection.classList.add('active');
+            }, 300);
         }, 500);
     }
 }
@@ -50,6 +55,7 @@ function goBack() {
         const step1 = document.getElementById('step1');
         const thrombolysisCard = document.getElementById('thrombolysis-card');
         const imageButton = document.getElementById('image-button');
+        const arrowIndicator = document.getElementById('arrow-indicator');
         const ctSection = document.getElementById('ct-scan-section');
         const thrombectomyResult = document.getElementById('thrombectomy-result');
         const managementResult = document.getElementById('management-result');
@@ -60,6 +66,7 @@ function goBack() {
         step1.classList.remove('slide-out');
         thrombolysisCard.classList.remove('active');
         imageButton.classList.remove('active');
+        arrowIndicator.classList.remove('active');
         ctSection.classList.remove('active');
         thrombectomyResult.classList.remove('active');
         managementResult.classList.remove('active');
