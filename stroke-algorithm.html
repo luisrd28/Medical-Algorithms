@@ -8,10 +8,12 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Back Buttons -->
+    <!-- Global Back Button (to Browse) -->
     <a href="browse.html" class="back-button" id="global-back-button">
         ← Back to Algorithms
     </a>
+
+    <!-- Step Back Button (for algorithm steps) -->
     <button class="back-button" id="step-back-button" onclick="goBack()" style="display: none;">
         ← Back to Previous Step
     </button>
@@ -31,37 +33,16 @@
         <div id="thrombolysis-card" class="slide-in-card">
             <div class="card-content">
                 <h3>Administer thrombolysis if eligible</h3>
+                <button class="criteria-button" onclick="showCriteria()">Check inclusion and exclusion criteria</button>
             </div>
         </div>
-
-        <!-- Image Button -->
-        <button id="image-button" onclick="showCriteria()">
-            View Imaging Protocol
-        </button>
-
-        <!-- Arrow Indicator -->
-        <div id="arrow-indicator" class="arrow-indicator">
-            ↓
-        </div>
-
-        <!-- CT Scan Section -->
-        <div id="ct-scan-section" class="slide-up-section">
-            <p class="ct-scan-text">Obtain CT of head and neck</p>
-            <div class="vessel-options">
-                <button class="vessel-button" onclick="handleVesselOption('present')">Large vessel occlusion present</button>
-                <button class="vessel-button" onclick="handleVesselOption('absent')">Large vessel occlusion absent</button>
-            </div>
-        </div>
-
-        <!-- Results -->
-        <div id="thrombectomy-result" class="result-text">Perform mechanical thrombectomy</div>
-        <div id="management-result" class="result-text">Standard post-ischemic stroke management</div>
 
         <!-- Criteria Modal -->
         <div id="criteria-modal" class="modal">
             <div class="modal-content">
                 <span class="close" onclick="closeModal()">&times;</span>
-                <img src="thrombolysis-criteria.jpg" alt="Thrombolysis Criteria">
+                <!-- Replace with your actual image filename -->
+                <img src="images/criteria-image.jpg" alt="Inclusion/Exclusion Criteria">
             </div>
         </div>
     </div>
