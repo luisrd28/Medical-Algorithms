@@ -14,13 +14,16 @@ function handleTimeOption(option) {
             opt.classList.add('fade-out');
         });
 
-        // Slide in thrombolysis card
+        // Slide in thrombolysis card after 300ms
         setTimeout(() => {
             thrombolysisCard.classList.add('active');
-            ctSection.classList.add('active');
         }, 300);
+
+        // Slide in CT section after 600ms (after thrombolysis card)
+        setTimeout(() => {
+            ctSection.classList.add('active');
+        }, 600);
     }
-    // Add logic for other options here
 }
 
 // Handle vessel occlusion choice
