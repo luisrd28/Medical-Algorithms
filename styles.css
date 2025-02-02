@@ -182,7 +182,7 @@ body {
     padding: 25px;
     border-radius: 15px;
     width: 100%;
-    margin-top: 10px; /* Reduced from 25px to 10px */
+    margin-top: 5px; /* Reduced from 25px to 10px */
     opacity: 0;
     transform: translateX(-20px);
     transition: 0.5s ease;
