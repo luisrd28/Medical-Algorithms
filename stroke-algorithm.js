@@ -9,20 +9,15 @@ const managementResult = document.getElementById('management-result');
 // Handle time selection
 function handleTimeOption(option) {
     if (option === 'lt4.5') {
-        // Fade out unselected options
+        // Fade out and collapse unselected options
         document.querySelectorAll('.time-option:not(:first-child)').forEach(opt => {
             opt.classList.add('fade-out');
         });
 
-        // Slide in thrombolysis card after 300ms
+        // Wait for fade-out animation to finish before sliding in the card
         setTimeout(() => {
             thrombolysisCard.classList.add('active');
-        }, 300);
-
-        // Slide in CT section after 600ms
-        setTimeout(() => {
-            ctSection.classList.add('active');
-        }, 600);
+        }, 300); // Match CSS transition duration (0.3s)
     }
 }
 
