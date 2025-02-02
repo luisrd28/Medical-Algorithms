@@ -42,6 +42,8 @@ body {
     font-weight: 600;
     cursor: pointer;
     transition: filter 0.3s ease; /* Smooth hover effect */
+    display: inline-block; /* Required for anchor tags */
+    text-decoration: none; /* Remove underline */
 }
 
 .browse-button:hover {
