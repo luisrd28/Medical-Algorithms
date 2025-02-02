@@ -19,7 +19,7 @@ function handleTimeOption(option) {
             thrombolysisCard.classList.add('active');
         }, 300);
 
-        // Slide in CT section after 600ms (after thrombolysis card)
+        // Slide in CT section after 600ms
         setTimeout(() => {
             ctSection.classList.add('active');
         }, 600);
