@@ -177,17 +177,21 @@ body {
 
 /* Thrombolysis Card */
 .slide-card {
-    position: absolute;
+    position: relative; /* Changed from absolute */
     left: -100%;
     background: #1a1a1a;
     padding: 25px;
     border-radius: 15px;
     width: 100%;
+    margin-top: 25px; /* Adds space below the selected button */
+    opacity: 0;
     transition: 0.5s all ease;
+    transform: translateX(-100%);
 }
 
 .slide-card.active {
-    left: 0;
+    opacity: 1;
+    transform: translateX(0);
 }
 
 .criteria-btn {
@@ -203,15 +207,18 @@ body {
 
 /* CT Scan Section */
 .slide-up-section {
-    position: fixed;
-    bottom: -300px;
+    position: relative;
+    bottom: -30px; /* Initial hidden position */
+    opacity: 0;
     width: 100%;
     max-width: 800px;
     transition: 0.5s all ease;
+    margin-top: 40px; /* Space between thrombolysis card and CT section */
 }
 
 .slide-up-section.active {
-    bottom: 30px;
+    bottom: 0;
+    opacity: 1;
 }
 
 .arrow {
