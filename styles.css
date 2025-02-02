@@ -57,3 +57,74 @@ body {
         font-size: 1rem;
     }
 }
+/* Back Button */
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.arrow {
+    font-size: 1.2rem;
+}
+
+.back-button:hover {
+    opacity: 0.8;
+}
+
+/* Algorithm List Styling */
+.algorithm-list {
+    width: 100%;
+    max-width: 800px; /* Limits width on large screens */
+    margin: 0 auto;
+}
+
+.algorithm-card {
+    background-color: #1a1a1a; /* Dark gray card */
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.algorithm-title {
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.algorithm-subtitle {
+    font-weight: 400;
+    color: #cccccc; /* Light gray */
+    margin-bottom: 0.5rem;
+}
+
+.algorithm-tag {
+    background-color: #eae2b7; /* Tag color */
+    color: black;
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: inline-block;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .algorithm-title {
+        font-size: 1.2rem;
+    }
+    .algorithm-subtitle {
+        font-size: 0.9rem;
+    }
+    .back-button {
+        font-size: 0.9rem;
+    }
+}
