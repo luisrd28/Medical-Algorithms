@@ -161,7 +161,8 @@ body {
     max-width: 800px;
     margin: 80px auto;
     padding: 20px;
-    overflow: visible;
+    position: relative;
+    overflow: visible; /* Ensure content isn’t clipped */
 }
 
 /* Time Options */
@@ -209,14 +210,26 @@ body {
 /* CT Scan Section */
 .slide-up-section {
     opacity: 0;
-    transform: translateY(50px); /* Start 50px below */
+    transform: translateY(50px);
     transition: 0.5s all ease;
-    margin-top: 20px; /* Space between thrombolysis card and CT section */
+    margin-top: 20px;
+    width: 100%;
+    /* Ensure it stays in document flow */
+    position: relative; /* Changed from fixed/absolute */
 }
 
 .slide-up-section.active {
     opacity: 1;
-    transform: translateY(0); /* Slide up to natural position */
+    transform: translateY(0);
+}
+
+/* Desktop-Specific Adjustment */
+@media (min-width: 769px) {
+    .slide-up-section {
+        max-width: 800px; /* Match container width */
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 .arrow {
