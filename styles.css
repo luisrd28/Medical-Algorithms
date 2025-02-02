@@ -1,3 +1,4 @@
+/* Reset and Base Styles */
 * {
     margin: 0;
     padding: 0;
@@ -6,60 +7,12 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
-    background-color: #000000; /* Black background */
+    background-color: #000;
+    color: white;
     min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-.container {
-    text-align: center;
-    padding: 20px;
-}
-
-.title {
-    font-weight: 700;
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    color: #ffffff; /* White text */
-}
-
-.subtitle {
-    font-weight: 500;
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    color: #ffffff; /* White text */
-}
-
-.browse-button {
-    background-color: #8ecae6; /* New button color */
-    color: #000000; /* Black text */
-    padding: 15px 30px;
-    border: none;
-    border-radius: 25px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: filter 0.3s ease; /* Smooth hover effect */
-    display: inline-block; /* Required for anchor tags */
-    text-decoration: none; /* Remove underline */
-}
-
-.browse-button:hover {
-    filter: brightness(90%); /* Darken button on hover */
-}
-
-/* Mobile responsiveness */
-@media (max-width: 768px) {
-    .title {
-        font-size: 2rem;
-    }
-    .subtitle {
-        font-size: 1rem;
-    }
-}
-/* Back Button */
+/* Back Buttons */
 .back-button {
     position: absolute;
     top: 20px;
@@ -70,90 +23,29 @@ body {
     display: flex;
     align-items: center;
     gap: 5px;
-}
-
-.arrow {
-    font-size: 1.2rem;
+    z-index: 100;
 }
 
 .back-button:hover {
     opacity: 0.8;
 }
 
-/* Algorithm List Styling */
-.algorithm-list {
-    width: 100%;
-    max-width: 800px; /* Limits width on large screens */
-    margin: 0 auto;
-}
-
-.algorithm-card {
-    display: block; /* Makes the entire card clickable */
-    text-decoration: none; /* Removes underline */
-    color: inherit; /* Inherits text color from parent */
-    background-color: #1a1a1a;
-    border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 20px;
-    transition: transform 0.3s ease; /* Add hover effect */
-}
-
-.algorithm-card:hover {
-    transform: translateY(-3px); /* Slight lift on hover */
-    text-decoration: none; /* Ensure no underline on hover */
-}
-
-.algorithm-title {
-    font-weight: 600;
-    font-size: 1.5rem;
-    color: white;
-    margin-bottom: 0.5rem;
-}
-
-.algorithm-subtitle {
-    font-weight: 400;
-    color: #cccccc; /* Light gray */
-    margin-bottom: 0.5rem;
-}
-
-.algorithm-tag {
-    background-color: #eae2b7; /* Tag color */
-    color: black;
-    padding: 5px 15px;
-    border-radius: 15px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    display: inline-block;
-}
-
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
-    .algorithm-title {
-        font-size: 1.2rem;
-    }
-    .algorithm-subtitle {
-        font-size: 0.9rem;
-    }
-    .back-button {
-        font-size: 0.9rem;
-    }
-}
-/* Algorithm-specific styles */
+/* Algorithm Container */
 .algorithm-container {
     max-width: 800px;
     margin: 80px auto 20px;
     padding: 20px;
     position: relative;
-    overflow: hidden;
+    min-height: 80vh;
 }
 
+/* Initial Step */
 .step {
     opacity: 1;
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .step h2 {
-    color: white;
     font-size: 1.5rem;
     margin-bottom: 2rem;
     text-align: center;
@@ -166,143 +58,39 @@ body {
 }
 
 .time-option {
-    background-color: #fcbf49; /* Yellow */
+    background-color: #fcbf49;
     color: black;
     padding: 20px;
     border-radius: 25px;
     font-weight: 600;
     cursor: pointer;
-    transition: transform 0.3s ease, opacity 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
 .time-option:hover {
     transform: scale(1.02);
 }
 
-/* Slide-in Card */
+/* Thrombolysis Card */
 .slide-in-card {
-    position: absolute;
-    top: 0;
-    left: -100%; /* Start off-screen */
-    width: 100%;
+    position: relative;
     background-color: #1a1a1a;
     border-radius: 10px;
     padding: 25px;
     color: white;
-    transition: left 0.5s ease;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    margin: 20px 0;
 }
 
 .slide-in-card.active {
-    left: 0; /* Slide in */
+    opacity: 1;
+    transform: translateY(0);
 }
 
-.criteria-button {
-    background-color: #8ecae6; /* Light blue */
-    color: black;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 25px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    margin-top: 20px;
-    cursor: pointer;
-}
-
-/* Modal Styles */
-
-.modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    z-index: 1000;
-    overflow-y: auto; /* Enable vertical scrolling */
-}
-
-.modal-content {
-    background-color: #000;
-    margin: 20px auto; /* Reduced margin for better spacing */
-    padding: 20px;
-    width: 90%;
-    max-width: 800px;
-    border-radius: 10px;
-    position: relative;
-    top: 50%; /* Center vertically */
-    transform: translateY(-50%); /* Adjust for exact center */
-}
-
-.modal-content img {
-    width: 100%;
-    height: auto;
-    max-height: 80vh; /* Limit image height to viewport */
-    object-fit: contain; /* Prevent distortion */
-}
-
-.close {
-    color: white;
-    font-size: 28px;
-    position: absolute;
-    right: 20px;
-    top: 10px;
-    cursor: pointer;
-}
-
-/* Animation Classes */
-.fade-out {
-    opacity: 0 !important;
-    transform: translateX(-50px);
-}
-
-.slide-in {
-    left: 0 !important;
-}
-
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
-    .step h2 {
-        font-size: 1.2rem;
-    }
-    .time-option {
-        padding: 15px;
-    }
-}
-/* Add to existing styles */
-.slide-out {
-    transform: translateX(-100%);
-    opacity: 0;
-    transition: transform 0.5s ease, opacity 0.3s ease;
-}
-/* Back Buttons */
-#global-back-button,
-#step-back-button {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-family: 'Montserrat', sans-serif;
-}
-
-#global-back-button:hover,
-#step-back-button:hover {
-    opacity: 0.8;
-}
 /* Image Button */
 #image-button {
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 300px;
     background-color: #ff4d6d;
     color: black;
     border: none;
@@ -310,31 +98,50 @@ body {
     border-radius: 25px;
     font-weight: 600;
     cursor: pointer;
-    transition: left 0.5s ease;
+    width: 300px;
+    margin: 0 auto;
+    display: block;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 #image-button.active {
-    left: calc(100% + 20px); /* Positions to the right of thrombolysis card */
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Arrow Indicator */
+.arrow-indicator {
+    text-align: center;
+    color: white;
+    font-size: 40px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    margin: 20px 0;
+}
+
+.arrow-indicator.active {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* CT Scan Section */
 .slide-up-section {
-    position: absolute;
-    bottom: -100px;
     opacity: 0;
-    width: 100%;
-    transition: bottom 0.5s ease, opacity 0.3s ease;
+    transform: translateY(50px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 .slide-up-section.active {
-    bottom: 20px;
     opacity: 1;
+    transform: translateY(0);
 }
 
 .ct-scan-text {
-    color: white;
     font-size: 1.2rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     text-align: center;
 }
 
@@ -342,6 +149,7 @@ body {
     display: flex;
     gap: 15px;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .vessel-button {
@@ -359,17 +167,88 @@ body {
     transform: scale(1.02);
 }
 
-/* Result Text */
+/* Results */
 .result-text {
     position: absolute;
     bottom: -100px;
-    color: white;
-    font-size: 1.5rem;
     width: 100%;
     text-align: center;
+    font-size: 1.5rem;
     transition: bottom 0.5s ease;
 }
 
 .result-text.active {
     bottom: 20px;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+.modal-content {
+    background-color: #000;
+    margin: 20px auto;
+    padding: 20px;
+    width: 90%;
+    max-width: 800px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.modal-content img {
+    width: 100%;
+    height: auto;
+    max-height: 80vh;
+    object-fit: contain;
+}
+
+.close {
+    color: white;
+    font-size: 28px;
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    cursor: pointer;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .step h2 {
+        font-size: 1.2rem;
+    }
+
+    .time-option {
+        padding: 15px;
+    }
+
+    .vessel-options {
+        flex-direction: column;
+    }
+
+    .result-text {
+        font-size: 1.2rem;
+    }
+
+    .arrow-indicator {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .algorithm-container {
+        padding: 10px;
+    }
+    
+    .slide-in-card {
+        padding: 15px;
+    }
 }
