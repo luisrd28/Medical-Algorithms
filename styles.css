@@ -88,11 +88,19 @@ body {
 }
 
 .algorithm-card {
-    background-color: #1a1a1a; /* Dark gray card */
+    display: block; /* Makes the entire card clickable */
+    text-decoration: none; /* Removes underline */
+    color: inherit; /* Inherits text color from parent */
+    background-color: #1a1a1a;
     border-radius: 10px;
     padding: 20px;
     margin-bottom: 20px;
-    text-align: left;
+    transition: transform 0.3s ease; /* Add hover effect */
+}
+
+.algorithm-card:hover {
+    transform: translateY(-3px); /* Slight lift on hover */
+    text-decoration: none; /* Ensure no underline on hover */
 }
 
 .algorithm-title {
