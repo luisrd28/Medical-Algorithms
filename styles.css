@@ -283,14 +283,15 @@ body {
 }
 
 /* Animations */
+/* Fade-out animation */
 .fade-out {
     opacity: 0 !important;
     transform: translateX(-50px);
-    height: 0 !important; /* Collapse vertical space */
-    margin: 0 !important;
-    padding: 0 !important;
+    height: 0 !important;        /* Collapse height */
+    margin: 0 !important;        /* Remove margins */
+    padding: 0 !important;       /* Remove padding */
     pointer-events: none;
-    transition: all 0.3s ease !important;
+    transition: all 0.3s ease !important; /* Animate all properties */
 }
 
 @media (max-width: 768px) {
