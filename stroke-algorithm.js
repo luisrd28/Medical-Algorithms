@@ -1,76 +1,65 @@
-let history = [];
-
 function handleTimeOption(selectedOption) {
     const step1 = document.getElementById('step1');
     const thrombolysisCard = document.getElementById('thrombolysis-card');
-    const imageButton = document.getElementById('image-button');
-    const arrowIndicator = document.getElementById('arrow-indicator');
-    const ctSection = document.getElementById('ct-scan-section');
 
-    history.push('step1');
-    document.getElementById('global-back-button').style.display = 'none';
-    document.getElementById('step-back-button').style.display = 'block';
-
+    // Slide out the entire step
     step1.classList.add('slide-out');
 
     if (selectedOption === 'lt4.5') {
         setTimeout(() => {
             thrombolysisCard.classList.add('active');
-            // Animate button/arrow after card appears
-            setTimeout(() => {
-                imageButton.classList.add('active');
-                arrowIndicator.classList.add('active');
-                ctSection.classList.add('active');
-            }, 300);
         }, 500);
     }
 }
 
-function handleVesselOption(option) {
-    const ctSection = document.getElementById('ct-scan-section');
-    const thrombectomyResult = document.getElementById('thrombectomy-result');
-    const managementResult = document.getElementById('management-result');
-
-    ctSection.classList.remove('active');
-
-    setTimeout(() => {
-        if (option === 'present') {
-            thrombectomyResult.classList.add('active');
-        } else {
-            managementResult.classList.add('active');
-        }
-    }, 300);
-}
-
 function showCriteria() {
-    document.getElementById('criteria-modal').style.display = 'block';
+    const modal = document.getElementById('criteria-modal');
+    modal.style.display = 'block';
 }
 
 function closeModal() {
-    document.getElementById('criteria-modal').style.display = 'none';
+    const modal = document.getElementById('criteria-modal');
+    modal.style.display = 'none';
+}
+// Track user's navigation history
+let history = [];
+
+function handleTimeOption(selectedOption) {
+    const step1 = document.getElementById('step1');
+    const thrombolysisCard = document.getElementById('thrombolysis-card');
+
+    // Push current step to history before leaving
+    history.push('step1');
+    
+    // Hide global back button, show step back button
+    document.getElementById('global-back-button').style.display = 'none';
+    document.getElementById('step-back-button').style.display = 'block';
+
+    // Slide out current step
+    step1.classList.add('slide-out');
+
+    // For "Less than 4.5 hrs" option
+    if (selectedOption === 'lt4.5') {
+        setTimeout(() => {
+            thrombolysisCard.classList.add('active');
+        }, 500);
+    }
 }
 
+// New function to navigate back
 function goBack() {
     if (history.length > 0) {
         const step1 = document.getElementById('step1');
         const thrombolysisCard = document.getElementById('thrombolysis-card');
-        const imageButton = document.getElementById('image-button');
-        const arrowIndicator = document.getElementById('arrow-indicator');
-        const ctSection = document.getElementById('ct-scan-section');
-        const thrombectomyResult = document.getElementById('thrombectomy-result');
-        const managementResult = document.getElementById('management-result');
-
+        
+        // Remove last step from history
         history.pop();
 
-        // Reset all elements
+        // Show previous step
         step1.classList.remove('slide-out');
         thrombolysisCard.classList.remove('active');
-        imageButton.classList.remove('active');
-        arrowIndicator.classList.remove('active');
-        ctSection.classList.remove('active');
-        thrombectomyResult.classList.remove('active');
-        managementResult.classList.remove('active');
 
+        // If back to initial step, hide step back button
         if (history.length === 0) {
             document.getElementById('global-back-button').style.display = 'block';
             document.getElementById('step-back-button').style.display = 'none';
