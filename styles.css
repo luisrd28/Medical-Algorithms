@@ -297,3 +297,79 @@ body {
 #step-back-button:hover {
     opacity: 0.8;
 }
+/* Image Button */
+#image-button {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 300px;
+    background-color: #ff4d6d;
+    color: black;
+    border: none;
+    padding: 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: left 0.5s ease;
+}
+
+#image-button.active {
+    left: calc(100% + 20px); /* Positions to the right of thrombolysis card */
+}
+
+/* CT Scan Section */
+.slide-up-section {
+    position: absolute;
+    bottom: -100px;
+    opacity: 0;
+    width: 100%;
+    transition: bottom 0.5s ease, opacity 0.3s ease;
+}
+
+.slide-up-section.active {
+    bottom: 20px;
+    opacity: 1;
+}
+
+.ct-scan-text {
+    color: white;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.vessel-options {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.vessel-button {
+    background-color: #8ecae6;
+    color: black;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.vessel-button:hover {
+    transform: scale(1.02);
+}
+
+/* Result Text */
+.result-text {
+    position: absolute;
+    bottom: -100px;
+    color: white;
+    font-size: 1.5rem;
+    width: 100%;
+    text-align: center;
+    transition: bottom 0.5s ease;
+}
+
+.result-text.active {
+    bottom: 20px;
+}
