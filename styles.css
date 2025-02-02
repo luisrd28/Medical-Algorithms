@@ -284,10 +284,13 @@ body {
 
 /* Animations */
 .fade-out {
-    opacity: 0;
+    opacity: 0 !important;
     transform: translateX(-50px);
+    height: 0 !important; /* Collapse vertical space */
+    margin: 0 !important;
+    padding: 0 !important;
     pointer-events: none;
-    transition: 0.3s all ease;
+    transition: all 0.3s ease !important;
 }
 
 @media (max-width: 768px) {
