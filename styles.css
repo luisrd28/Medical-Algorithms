@@ -183,16 +183,16 @@ body {
     padding: 25px;
     border-radius: 15px;
     width: 100%;
-    margin-top: 5px !important; /* Reduced from 25px to 10px */
+    margin: 10px 0 0 0 !important; /* Top margin only */
     opacity: 0;
     transform: translateX(-20px);
     transition: 0.5s ease;
+    z-index: 10; /* Ensure it’s above other elements */
 }
 
 .slide-card.active {
     opacity: 1;
     transform: translateX(0);
-    z-index: 10;
 }
 
 .criteria-btn {
