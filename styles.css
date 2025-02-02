@@ -178,20 +178,19 @@ body {
 /* Thrombolysis Card */
 .slide-card {
     position: relative;
-    left: 0;
-    opacity: 0;
     background: #1a1a1a;
     padding: 25px;
     border-radius: 15px;
     width: 100%;
-    margin-top: 25px;
-    transition: 0.5s all ease;
-    transform: translateX(-20px); /* Start slightly off-screen */
+    margin-top: 25px; /* Appears 25px below the selected button */
+    opacity: 0;
+    transform: translateX(-20px); /* Starts slightly off-screen */
+    transition: 0.5s ease;
 }
 
 .slide-card.active {
     opacity: 1;
-    transform: translateX(0); /* Slide into natural position */
+    transform: translateX(0); /* Slides into natural position */
 }
 
 .criteria-btn {
