@@ -208,18 +208,15 @@ body {
 
 /* CT Scan Section */
 .slide-up-section {
-    position: relative;
-    bottom: -30px; /* Initial hidden position */
     opacity: 0;
-    width: 100%;
-    max-width: 800px;
+    transform: translateY(50px); /* Start 50px below */
     transition: 0.5s all ease;
-    margin-top: 40px; /* Space between thrombolysis card and CT section */
+    margin-top: 20px; /* Space between thrombolysis card and CT section */
 }
 
 .slide-up-section.active {
-    bottom: 0;
     opacity: 1;
+    transform: translateY(0); /* Slide up to natural position */
 }
 
 .arrow {
