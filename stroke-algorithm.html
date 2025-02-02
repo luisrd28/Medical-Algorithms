@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acute Ischemic Stroke Algorithm</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <a href="browse.html" class="back-button">← Back</a>
+    
+    <div class="algorithm-container">
+        <!-- Initial Step -->
+        <div id="step1" class="step active">
+            <h2>Time since symptoms onset or last observed at neurologic baseline</h2>
+            <div class="options-container">
+                <div class="time-option" onclick="handleTimeOption('lt4.5')">Less than 4.5 hrs</div>
+                <div class="time-option" onclick="handleTimeOption('4.5-24')">Between 4.5 hrs and 24 hrs</div>
+                <div class="time-option" onclick="handleTimeOption('gt24')">More than 24 hrs</div>
+            </div>
+        </div>
+
+        <!-- Thrombolysis Section -->
+        <div id="thrombolysis-card" class="slide-card">
+            <h3>Administer thrombolysis if eligible</h3>
+            <button class="criteria-btn" onclick="showImageModal('criteria.jpg')">Check inclusion/exclusion criteria</button>
+        </div>
+
+        <!-- CT Scan Section -->
+        <div id="ct-section" class="slide-up-section">
+            <div class="arrow">↓</div>
+            <p class="ct-text">Obtain CT of head and neck</p>
+            <div class="vessel-options">
+                <button class="vessel-btn" onclick="handleVesselOption('present')">Large vessel occlusion present</button>
+                <button class="vessel-btn" onclick="handleVesselOption('absent')">Large vessel occlusion absent</button>
+            </div>
+        </div>
+
+        <!-- Results -->
+        <div id="thrombectomy-result" class="result-text">Perform mechanical thrombectomy</div>
+        <div id="management-result" class="result-text">Standard post-ischemic stroke management</div>
+    </div>
+
+    <!-- Image Modal -->
+    <div id="image-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img id="modal-image" src="" alt="Criteria">
+        </div>
+    </div>
+
+    <script src="stroke-algorithm.js"></script>
+</body>
+</html>
