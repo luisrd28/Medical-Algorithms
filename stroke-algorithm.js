@@ -14,10 +14,10 @@ function handleTimeOption(option) {
             opt.classList.add('fade-out');
         });
 
-        // Wait for fade-out animation to finish before sliding in the card
+        // Wait for height collapse animation (300ms)
         setTimeout(() => {
             thrombolysisCard.classList.add('active');
-        }, 300); // Match CSS transition duration (0.3s)
+        }, 300); // Match CSS transition duration
     }
 }
 
