@@ -37,6 +37,24 @@
             </div>
         </div>
 
+        <!-- Add after thrombolysis-card -->
+<div id="ct-scan-section" class="slide-up-section">
+    <p class="ct-scan-text">Obtain CT of head and neck</p>
+    <div class="vessel-options">
+        <button class="vessel-button" onclick="handleVesselOption('present')">Large vessel occlusion present</button>
+        <button class="vessel-button" onclick="handleVesselOption('absent')">Large vessel occlusion absent</button>
+    </div>
+</div>
+
+<!-- Image Button (slides next to thrombolysis card) -->
+<button id="image-button" class="slide-in-card" onclick="showCriteria()">
+    View Imaging Protocol
+</button>
+
+<!-- Results Sections -->
+<div id="thrombectomy-result" class="result-text">Perform mechanical thrombectomy</div>
+<div id="management-result" class="result-text">Standard post-ischemic stroke management</div>
+
         <!-- Criteria Modal -->
         <div id="criteria-modal" class="modal">
             <div class="modal-content">
