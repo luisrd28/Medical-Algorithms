@@ -161,6 +161,7 @@ body {
     max-width: 800px;
     margin: 80px auto;
     padding: 20px;
+    overflow: visible;
 }
 
 /* Time Options */
@@ -191,6 +192,7 @@ body {
 .slide-card.active {
     opacity: 1;
     transform: translateX(0);
+    z-index: 10;
 }
 
 .criteria-btn {
