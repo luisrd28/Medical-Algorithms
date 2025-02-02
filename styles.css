@@ -182,15 +182,15 @@ body {
     padding: 25px;
     border-radius: 15px;
     width: 100%;
-    margin-top: 25px; /* Appears 25px below the selected button */
+    margin-top: 10px; /* Reduced from 25px to 10px */
     opacity: 0;
-    transform: translateX(-20px); /* Starts slightly off-screen */
+    transform: translateX(-20px);
     transition: 0.5s ease;
 }
 
 .slide-card.active {
     opacity: 1;
-    transform: translateX(0); /* Slides into natural position */
+    transform: translateX(0);
 }
 
 .criteria-btn {
