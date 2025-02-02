@@ -209,6 +209,7 @@ body {
 }
 
 /* Modal Styles */
+
 .modal {
     display: none;
     position: fixed;
@@ -218,21 +219,26 @@ body {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.8);
     z-index: 1000;
+    overflow-y: auto; /* Enable vertical scrolling */
 }
 
 .modal-content {
     background-color: #000;
-    margin: 5% auto;
+    margin: 20px auto; /* Reduced margin for better spacing */
     padding: 20px;
     width: 90%;
     max-width: 800px;
     border-radius: 10px;
     position: relative;
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Adjust for exact center */
 }
 
 .modal-content img {
     width: 100%;
     height: auto;
+    max-height: 80vh; /* Limit image height to viewport */
+    object-fit: contain; /* Prevent distortion */
 }
 
 .close {
