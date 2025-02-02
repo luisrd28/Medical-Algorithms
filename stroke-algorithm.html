@@ -1,52 +1,68 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acute Ischemic Stroke</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <!-- Global Back Button (to Browse) -->
-    <a href="browse.html" class="back-button" id="global-back-button">
-        ← Back to Algorithms
-    </a>
+function handleTimeOption(selectedOption) {
+    const step1 = document.getElementById('step1');
+    const thrombolysisCard = document.getElementById('thrombolysis-card');
 
-    <!-- Step Back Button (for algorithm steps) -->
-    <button class="back-button" id="step-back-button" onclick="goBack()" style="display: none;">
-        ← Back to Previous Step
-    </button>
+    // Slide out the entire step
+    step1.classList.add('slide-out');
 
-    <div class="algorithm-container">
-        <!-- Initial Step -->
-        <div id="step1" class="step">
-            <h2>Time since symptoms onset or last observed at neurologic baseline</h2>
-            <div class="options-container">
-                <div class="time-option" onclick="handleTimeOption('lt4.5')">Less than 4.5 hrs</div>
-                <div class="time-option" onclick="handleTimeOption('4.5-24')">Between 4.5 hrs and 24 hrs</div>
-                <div class="time-option" onclick="handleTimeOption('gt24')">More than 24 hrs</div>
-            </div>
-        </div>
+    if (selectedOption === 'lt4.5') {
+        setTimeout(() => {
+            thrombolysisCard.classList.add('active');
+        }, 500);
+    }
+}
 
-        <!-- Thrombolysis Card -->
-        <div id="thrombolysis-card" class="slide-in-card">
-            <div class="card-content">
-                <h3>Administer thrombolysis if eligible</h3>
-                <button class="criteria-button" onclick="showCriteria()">Check inclusion and exclusion criteria</button>
-            </div>
-        </div>
+function showCriteria() {
+    const modal = document.getElementById('criteria-modal');
+    modal.style.display = 'block';
+}
 
-        <!-- Criteria Modal -->
-        <div id="criteria-modal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal()">&times;</span>
-                <!-- Replace with your actual image filename -->
-                <img src="images/criteria-image.jpg" alt="Inclusion/Exclusion Criteria">
-            </div>
-        </div>
-    </div>
+function closeModal() {
+    const modal = document.getElementById('criteria-modal');
+    modal.style.display = 'none';
+}
+// Track user's navigation history
+let history = [];
 
-    <script src="stroke-algorithm.js"></script>
-</body>
-</html>
+function handleTimeOption(selectedOption) {
+    const step1 = document.getElementById('step1');
+    const thrombolysisCard = document.getElementById('thrombolysis-card');
+
+    // Push current step to history before leaving
+    history.push('step1');
+    
+    // Hide global back button, show step back button
+    document.getElementById('global-back-button').style.display = 'none';
+    document.getElementById('step-back-button').style.display = 'block';
+
+    // Slide out current step
+    step1.classList.add('slide-out');
+
+    // For "Less than 4.5 hrs" option
+    if (selectedOption === 'lt4.5') {
+        setTimeout(() => {
+            thrombolysisCard.classList.add('active');
+        }, 500);
+    }
+}
+
+// New function to navigate back
+function goBack() {
+    if (history.length > 0) {
+        const step1 = document.getElementById('step1');
+        const thrombolysisCard = document.getElementById('thrombolysis-card');
+        
+        // Remove last step from history
+        history.pop();
+
+        // Show previous step
+        step1.classList.remove('slide-out');
+        thrombolysisCard.classList.remove('active');
+
+        // If back to initial step, hide step back button
+        if (history.length === 0) {
+            document.getElementById('global-back-button').style.display = 'block';
+            document.getElementById('step-back-button').style.display = 'none';
+        }
+    }
+}
