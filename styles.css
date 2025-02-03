@@ -169,17 +169,6 @@ body {
   margin-top: 20px; /* Default spacing */
 }
 
-/* Add this rule for the 4.5-24hrs pathway */
-.no-thrombolysis .slide-up-section {
-  margin-top: -40px; /* Pull up when thrombolysis card is skipped */
-}
-
-/* Mobile adjustment */
-@media (max-width: 768px) {
-  .no-thrombolysis .slide-up-section {
-    margin-top: -20px; /* Smaller adjustment for mobile */
-  }
-}
 
 /* Time Options */
 .time-option {
@@ -238,10 +227,7 @@ body {
     margin-top: 20px; /* Default spacing */
 }
 
-/* Add this new rule */
-.slide-card:not(.active) + .slide-up-section {
-    margin-top: -30px; /* Pull up when thrombolysis card is hidden */
-}
+
 /* Add this new rule */
 .slide-up-section.no-thrombolysis {
     margin-top: -50px !important; /* Pulls the CT section upward */
@@ -489,4 +475,13 @@ body {
         padding: 8px 12px;
         font-size: 1rem;
     }
+}
+.pathway-container.no-thrombolysis {
+  margin-top: -60px; /* Increased from -40px */
+}
+
+@media (max-width: 768px) {
+  .pathway-container.no-thrombolysis {
+    margin-top: -40px; /* Increased from -20px */
+  }
 }
