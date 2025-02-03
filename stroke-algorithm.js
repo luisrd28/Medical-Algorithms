@@ -10,22 +10,22 @@ const managementResult = document.getElementById('management-result');
 
 // Handle time selection
 function handleTimeOption(option) {
-    history.push('time-options');
+  history.push("time-options");
 
-    document.querySelectorAll('.time-option').forEach(opt => {
-        const isSelected = opt.getAttribute('onclick').includes(`'${option}'`);
-        if (!isSelected) opt.classList.add('fade-out');
-    });
+  document.querySelectorAll(".time-option").forEach((opt) => {
+    const isSelected = opt.getAttribute("onclick").includes(`'${option}'`);
+    if (!isSelected) opt.classList.add("fade-out");
+  });
 
-    setTimeout(() => {
-        if (option === 'lt4.5') {
-            thrombolysisCard.classList.add('active');
-            ctSection.classList.add('active');
-            ctSection.classList.remove('no-thrombolysis'); // Reset class
-        } else if (option === '4.5-24') {
-            ctSection.classList.add('active', 'no-thrombolysis'); // Add class
-        }
-    }, 300);
+  setTimeout(() => {
+    if (option === "lt4.5") {
+      thrombolysisCard.classList.add("active");
+      ctSection.classList.add("active");
+      ctSection.classList.remove("no-thrombolysis"); // Reset class
+    } else if (option === "4.5-24") {
+      ctSection.classList.add("active", "no-thrombolysis"); // Add class
+    }
+  }, 300);
 }
 
 // Handle vessel occlusion choice (unchanged)
@@ -50,21 +50,20 @@ function handleVesselOption(selectedOption) {
 
 // Back button logic (unchanged)
 function goBack() {
-    if (history.length === 0) {
-        window.location.href = 'browse.html';
-        return;
-    }
+  if (history.length === 0) {
+    window.location.href = "browse.html";
+    return;
+  }
 
-    const lastStep = history.pop();
-    
-    switch(lastStep) {
-        case 'time-options':
-            document.querySelectorAll('.time-option').forEach(opt => {
-                opt.classList.remove('fade-out');
-            });
-            thrombolysisCard.classList.remove('active');
-            ctSection.classList.remove('active', 'no-thrombolysis'); // Reset class
-            break;
+  const lastStep = history.pop();
+  switch (lastStep) {
+    case "time-options":
+      document.querySelectorAll(".time-option").forEach((opt) => {
+        opt.classList.remove("fade-out");
+      });
+      thrombolysisCard.classList.remove("active");
+      ctSection.classList.remove("active", "no-thrombolysis"); // Reset
+      break;
             
         case 'ct-section':
             document.querySelectorAll('.vessel-btn').forEach(btn => {
