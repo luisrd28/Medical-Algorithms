@@ -137,59 +137,80 @@ body {
         font-size: 0.9rem;
     }
 }
-/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Montserrat', sans-serif;
     background: #000;
     color: white;
-    overflow-x: hidden;
+    min-height: 100vh;
 }
 
+/* Back Button */
 .back-button {
     position: fixed;
     top: 20px;
     left: 20px;
-    color: white;
+    color: #48cae4;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px 15px;
+    border-radius: 25px;
+    z-index: 1000;
     text-decoration: none;
-    font-weight: 500;
-    z-index: 100;
+    transition: opacity 0.3s ease;
 }
 
+.back-button:hover {
+    opacity: 0.8;
+}
+
+/* Main Container */
 .algorithm-container {
     max-width: 800px;
-    margin: 100px auto 20px; /* Increased top margin to avoid back button */
+    margin: 100px auto 20px;
     padding: 20px;
 }
 
-/* Reset CT section positioning */
-.slide-up-section {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: 0.5s all ease;
-  margin-top: 20px; /* Default spacing */
+/* Time Options */
+#step1 {
+    margin-top: 40px;
 }
 
+.options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
 
-/* Time Options */
 .time-option {
     background: #fcbf49;
     color: #000;
     padding: 15px 30px;
-    margin: 10px 0;
     border-radius: 25px;
     cursor: pointer;
-    transition: 0.3s all ease;
     font-weight: 600;
+    transition: transform 0.3s ease;
+}
+
+.time-option:hover {
+    transform: scale(1.02);
+}
+
+/* Pathway Container */
+#pathway-container {
+    position: relative;
+    margin-top: 30px;
 }
 
 /* Thrombolysis Card */
 .slide-card {
-    position: relative;
     background: #1a1a1a;
     padding: 25px;
     border-radius: 15px;
-    width: 100%;
-    margin-top: 10px;
     opacity: 0;
     transform: translateX(-20px);
     transition: 0.5s ease;
@@ -200,97 +221,83 @@ body {
     transform: translateX(0);
 }
 
+/* CT Scan Section */
+.slide-up-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 0.5s all ease;
+    margin-top: 25px;
+}
+
+.slide-up-section.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 4.5-24hrs Pathway Adjustment */
+#pathway-container.no-thrombolysis {
+    margin-top: -80px; /* Increased negative margin */
+}
+
+/* Buttons Container */
+.button-container {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.criteria-btn, .dosing-btn {
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
 
 .criteria-btn {
     background: #ff4d6d;
     color: #000;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 25px;
-    margin-top: 15px;
-    cursor: pointer;
-    font-weight: 600;
 }
 
-/* CT Scan Section */
-.slide-up-section {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: 0.5s all ease;
-    margin-top: 20px;
+.dosing-btn {
+    background: #8ecae6;
+    color: #000;
 }
 
-.slide-up-section {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: 0.5s all ease;
-    margin-top: 20px; /* Default spacing */
-}
-
-
-/* Add this new rule */
-.slide-up-section.no-thrombolysis {
-    margin-top: -50px !important; /* Pulls the CT section upward */
-}
-
-.ct-text {
-    text-align: center;
-    font-size: 1.2rem;
-    margin-bottom: 1.5rem;
-}
-
-/* Desktop-Specific Adjustment */
-@media (min-width: 769px) {
-    .slide-up-section {
-        max-width: 800px; /* Match container width */
-        margin-left: auto;
-        margin-right: auto;
-    }
-}
-@media (max-width: 768px) {
-    .slide-up-section.no-thrombolysis {
-        margin-top: -30px !important; /* Smaller adjustment for mobile */
-    }
-}
-
-.arrow {
-    text-align: center;
-    font-size: 40px;
-    margin: 20px 0;
-}
-
+/* Vessel Options */
 .vessel-options {
     display: flex;
     gap: 15px;
-    justify-content: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
 }
 
 .vessel-btn {
-    background: #8ecae6;
+    background: #48cae4;
     color: #000;
-    border: none;
     padding: 12px 25px;
     border-radius: 25px;
+    border: none;
     cursor: pointer;
-    transition: 0.3s all ease;
+    font-weight: 600;
+    transition: transform 0.3s ease;
 }
-
 
 /* Results */
 .result-text {
-    position: relative;
     opacity: 0;
-    transform: translateY(20px); /* Smaller slide-up distance */
-    width: 100%;
-    text-align: center;
-    font-size: 1.2rem;
-    margin: 25px 0; /* Uniform spacing */
+    transform: translateY(20px);
     transition: 0.5s all ease;
+    text-align: center;
+    margin: 25px 0;
+    font-size: 1.2rem;
 }
 
 .result-text.active {
     opacity: 1;
-    transform: translateY(0); /* Slides up from below */
+    transform: translateY(0);
 }
 
 /* Modal */
@@ -303,61 +310,67 @@ body {
     height: 100%;
     background: rgba(0, 0, 0, 0.9);
     z-index: 1000;
-    overflow-y: auto; /* Enable scrolling */
-}
-
-/* Modal Styles */
-.modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.9);
-    z-index: 1000;
-    overflow-y: auto; /* Enable scrolling */
+    overflow-y: auto;
 }
 
 .modal-content {
     position: relative;
     background: #000;
-    margin: 50px auto; /* Adds space at the top */
-    padding: 40px 20px 20px 20px; /* Top padding for close button */
+    margin: 50px auto;
+    padding: 40px 20px;
     width: 90%;
     max-width: 800px;
     border-radius: 10px;
 }
 
-/* Close Button */
 .close {
     position: absolute;
     top: 10px;
     right: 20px;
     color: white;
-    font-size: 40px; /* Larger size */
-    font-weight: 300;
+    font-size: 40px;
     cursor: pointer;
-    padding: 0 10px;
-    transition: 0.3s all ease;
+    transition: color 0.3s ease;
 }
 
 .close:hover {
-    color: #ff4d6d; /* Accent color on hover */
+    color: #ff4d6d;
 }
 
-/* Image Scaling */
 .modal-content img {
     width: 100%;
     height: auto;
-    max-height: 80vh; /* Limits image height for scrolling */
-    object-fit: contain; /* Prevents distortion */
+    max-height: 80vh;
+    object-fit: contain;
 }
 
-/* Mobile Modal Adjustments */
+/* Mobile Responsiveness */
 @media (max-width: 768px) {
-    .modal-content img {
-        max-height: 90vh; /* More height on mobile */
+    .algorithm-container {
+        margin: 80px auto 20px;
+        padding: 15px;
+    }
+
+    #step1 {
+        margin-top: 30px;
+    }
+
+    #pathway-container.no-thrombolysis {
+        margin-top: -60px; /* Increased negative margin for mobile */
+    }
+
+    .time-option, .criteria-btn, .dosing-btn, .vessel-btn {
+        width: 100%;
+    }
+
+    .button-container, .vessel-options {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .modal-content {
+        margin: 30px auto;
+        padding: 30px 15px;
     }
 
     .close {
@@ -367,7 +380,6 @@ body {
 }
 
 /* Animations */
-/* Fade-out animation */
 .fade-out {
     opacity: 0 !important;
     height: 0 !important;
@@ -375,113 +387,4 @@ body {
     padding: 0 !important;
     pointer-events: none;
     transition: all 0.3s ease !important;
-}
-
-@media (max-width: 768px) {
-    .vessel-options {
-        flex-direction: column;
-    }
-}
-
-
-/* Keep CT text visible */
-.slide-up-section.active {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: none; /* Disable clicks on entire section */
-}
-
-/* Allow clicks on buttons only */
-.vessel-btn {
-    pointer-events: auto;
-}
-
-/* Fade out unselected buttons */
-.vessel-btn.fade-out {
-    opacity: 0;
-    height: 0;
-    padding: 0;
-    margin: 0;
-    transition: all 0.3s ease;
-}
-/* Mobile Responsiveness (Add this at the end of styles.css) */
-@media (max-width: 768px) {
-    /* Increase spacing below buttons for results */
-    .result-text {
-        margin: 30px 0 !important; /* More space on mobile */
-        font-size: 1.1rem; /* Smaller text for mobile */
-    }
-
-    /* Adjust CT section spacing */
-    .slide-up-section {
-        margin-top: 15px; /* Reduce space between sections */
-    }
-
-    /* Ensure vessel buttons don’t overflow */
-    .vessel-options {
-        flex-direction: column;
-        gap: 10px;
-    }
-}
-/* Button container for side-by-side layout */
-.button-container {
-    display: flex;
-    gap: 15px;
-    margin-top: 15px;
-    flex-wrap: wrap; /* Wrap to new line on mobile */
-}
-
-/* New dosing button */
-.dosing-btn {
-    background: #b2ff9e; /* Light blue */
-    color: #000;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 25px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: 0.3s all ease;
-}
-
-.dosing-btn:hover {
-    transform: scale(1.02);
-}
-
-/* Mobile responsiveness */
-@media (max-width: 768px) {
-    .button-container {
-        flex-direction: column; /* Stack buttons vertically */
-    }
-}
-
-/* Initial Step (Time Options) */
-#step1 {
-    margin-top: 40px; /* Push options down */
-}
-
-/* Mobile Adjustments */
-@media (max-width: 768px) {
-    .algorithm-container {
-        margin: 80px auto 20px; /* Less top margin on mobile */
-    }
-
-    #step1 {
-        margin-top: 30px; /* Smaller spacing for mobile */
-    }
-
-    .back-button {
-        top: 10px;
-        left: 10px;
-        padding: 8px 12px;
-        font-size: 1rem;
-    }
-}
-.pathway-container.no-thrombolysis {
-  margin-top: -60px; /* Increased from -40px */
-}
-
-@media (max-width: 768px) {
-  .pathway-container.no-thrombolysis {
-    margin-top: -40px; /* Increased from -20px */
-  }
 }
