@@ -10,43 +10,47 @@
 <body>
     <button class="back-button" onclick="goBack()">← Back</button>
     
-    <!-- Replace the ENTIRE algorithm-container div with this: -->
-<div class="algorithm-container">
-    <!-- Initial Step -->
-    <div id="step1" class="step active">
-        <h2>Time since symptoms onset or last observed at neurologic baseline</h2>
-        <div class="options-container">
-            <div class="time-option" onclick="handleTimeOption('lt4.5')">Less than 4.5 hrs</div>
-            <div class="time-option" onclick="handleTimeOption('4.5-24')">Between 4.5 hrs and 24 hrs</div>
-            <div class="time-option" onclick="handleTimeOption('gt24')">More than 24 hrs</div>
+    <div class="algorithm-container">
+        <!-- Initial Step -->
+        <div id="step1" class="step active">
+            <h2>Time since symptoms onset or last observed at neurologic baseline</h2>
+            <div class="options-container">
+                <div class="time-option" onclick="handleTimeOption('lt4.5')">Less than 4.5 hrs</div>
+                <div class="time-option" onclick="handleTimeOption('4.5-24')">Between 4.5 hrs and 24 hrs</div>
+                <div class="time-option" onclick="handleTimeOption('gt24')">More than 24 hrs</div>
+            </div>
         </div>
-    </div>
 
-    <!-- Thrombolysis Card -->
-    <div id="thrombolysis-card" class="slide-card">
-        <h3>Administer thrombolysis if eligible</h3>
-        <button class="criteria-btn" onclick="showImageModal('images/criteria-image.jpg')">Check criteria</button>
-        <button class="dosing-btn" onclick="showImageModal('images/alteplase.png')">Alteplase</button>
-    </div>
+        <!-- ======= NEW CONTAINER ADDED HERE ======= -->
+        <div id="pathway-container">
+            <!-- Thrombolysis Card -->
+            <div id="thrombolysis-card" class="slide-card">
+                <h3>Administer thrombolysis if eligible</h3>
+                <button class="criteria-btn" onclick="showImageModal('images/criteria-image.jpg')">Check criteria</button>
+                <button class="dosing-btn" onclick="showImageModal('images/alteplase.png')">Alteplase</button>
+            </div>
 
-    <!-- CT Scan Section -->
-    <div id="ct-section" class="slide-up-section">
-    <div class="arrow">↓</div>
-    <p class="ct-text">Obtain CT of head and neck</p>
-    <div class="vessel-options">
-        <button class="vessel-btn" onclick="handleVesselOption('present')">Large vessel occlusion present</button>
-        <button class="vessel-btn" onclick="handleVesselOption('absent')">Large vessel occlusion absent</button>
-    </div>
-    <!-- Move results here -->
-    <div id="thrombectomy-result" class="result-text">Perform mechanical thrombectomy</div>
-    <div id="management-result" class="result-text">Standard post-ischemic stroke management</div>
-</div>
-    
-    <!-- Image Modal -->
-    <div id="image-modal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <img id="modal-image" src="" alt="Criteria">
+            <!-- CT Scan Section -->
+            <div id="ct-section" class="slide-up-section">
+                <div class="arrow">↓</div>
+                <p class="ct-text">Obtain CT of head and neck</p>
+                <div class="vessel-options">
+                    <button class="vessel-btn" onclick="handleVesselOption('present')">Large vessel occlusion present</button>
+                    <button class="vessel-btn" onclick="handleVesselOption('absent')">Large vessel occlusion absent</button>
+                </div>
+                <!-- Results -->
+                <div id="thrombectomy-result" class="result-text">Perform mechanical thrombectomy</div>
+                <div id="management-result" class="result-text">Standard post-ischemic stroke management</div>
+            </div>
+        </div>
+        <!-- ======= END OF NEW CONTAINER ======= -->
+
+        <!-- Image Modal -->
+        <div id="image-modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <img id="modal-image" src="" alt="Criteria">
+            </div>
         </div>
     </div>
 
