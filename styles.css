@@ -315,3 +315,24 @@ body {
     margin-bottom: 1.5rem;
     width: 100%; /* Ensure full width for centering */
 }
+
+/* Keep CT text visible */
+.slide-up-section.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: none; /* Disable clicks on entire section */
+}
+
+/* Allow clicks on buttons only */
+.vessel-btn {
+    pointer-events: auto;
+}
+
+/* Fade out unselected buttons */
+.vessel-btn.fade-out {
+    opacity: 0;
+    height: 0;
+    padding: 0;
+    margin: 0;
+    transition: all 0.3s ease;
+}
