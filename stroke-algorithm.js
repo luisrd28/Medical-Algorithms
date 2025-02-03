@@ -80,6 +80,16 @@ function goBack() {
     }
 }
 
-// Image modal functions (unchanged)
-function showImageModal(imagePath) { /* ... */ }
-function closeModal() { /* ... */ }
+
+// Image Modal Functions (add these if missing)
+function showImageModal(imagePath) {
+    const modalImage = document.getElementById('modal-image');
+    const imageModal = document.getElementById('image-modal');
+    
+    modalImage.src = imagePath; // Set the image source
+    imageModal.style.display = 'block'; // Show the modal
+}
+
+function closeModal() {
+    document.getElementById('image-modal').style.display = 'none';
+}
