@@ -61,23 +61,29 @@ body {
 }
 /* Back Button */
 .back-button {
-    position: absolute;
+    position: fixed;
     top: 20px;
     left: 20px;
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
+    color: #48cae4; /* Updated color */
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 1000;
+    text-decoration: none; /* Remove underline */
+    font-weight: 500; /* Semi-bold */
     display: flex;
     align-items: center;
     gap: 5px;
 }
 
-.arrow {
-    font-size: 1.2rem;
-}
-
 .back-button:hover {
     opacity: 0.8;
+    color: #48cae4 !important; /* Keep color consistent on hover */
+}
+
+.arrow {
+    font-size: 1.2rem;
 }
 
 /* Algorithm List Styling */
