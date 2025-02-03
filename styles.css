@@ -184,17 +184,17 @@ body {
     padding: 25px;
     border-radius: 15px;
     width: 100%;
-    margin: 15px 0 0 0 !important; /* Top margin only */
+    margin-top: 10px;
     opacity: 0;
     transform: translateX(-20px);
     transition: 0.5s ease;
-    z-index: 10; /* Ensure it’s above other elements */
 }
 
 .slide-card.active {
     opacity: 1;
     transform: translateX(0);
 }
+
 
 .criteria-btn {
     background: #ff4d6d;
@@ -213,14 +213,17 @@ body {
     transform: translateY(50px);
     transition: 0.5s all ease;
     margin-top: 20px;
-    width: 100%;
-    /* Ensure it stays in document flow */
-    position: relative; /* Changed from fixed/absolute */
 }
 
 .slide-up-section.active {
     opacity: 1;
     transform: translateY(0);
+}
+
+.ct-text {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
 }
 
 /* Desktop-Specific Adjustment */
@@ -251,8 +254,9 @@ body {
     padding: 12px 25px;
     border-radius: 25px;
     cursor: pointer;
-    font-weight: 600;
+    transition: 0.3s all ease;
 }
+
 
 /* Results */
 .result-text {
@@ -267,6 +271,7 @@ body {
 .result-text.active {
     bottom: 50px;
 }
+
 
 /* Modal */
 .modal {
@@ -296,12 +301,11 @@ body {
 /* Fade-out animation */
 .fade-out {
     opacity: 0 !important;
-    transform: translateX(-50px);
-    height: 0 !important;        /* Collapse height */
-    margin: 0 !important;        /* Remove margins */
-    padding: 0 !important;       /* Remove padding */
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
     pointer-events: none;
-    transition: all 0.3s ease !important; /* Animate all properties */
+    transition: all 0.3s ease !important;
 }
 
 @media (max-width: 768px) {
@@ -309,12 +313,7 @@ body {
         flex-direction: column;
     }
 }
-.ct-text {
-    text-align: center;
-    font-size: 1.2rem;
-    margin-bottom: 1.5rem;
-    width: 100%; /* Ensure full width for centering */
-}
+
 
 /* Keep CT text visible */
 .slide-up-section.active {
