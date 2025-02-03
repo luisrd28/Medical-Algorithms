@@ -7,23 +7,25 @@ const thrombectomyResult = document.getElementById('thrombectomy-result');
 const managementResult = document.getElementById('management-result');
 
 // Handle time selection
-function handleTimeOption(option) {
-    if (option === 'lt4.5') {
-        // Fade out unselected options
-        document.querySelectorAll('.time-option:not(:first-child)').forEach(opt => {
-            opt.classList.add('fade-out');
-        });
+function handleVesselOption(selectedOption) {
+    const vesselButtons = document.querySelectorAll('.vessel-btn');
+    const ctText = document.querySelector('.ct-text');
 
-        // Show thrombolysis card after 300ms
-        setTimeout(() => {
-            thrombolysisCard.classList.add('active');
-        }, 300);
+    // Hide unselected buttons
+    vesselButtons.forEach(btn => {
+        if (btn.innerText.toLowerCase() !== selectedOption) {
+            btn.classList.add('fade-out');
+        }
+    });
 
-        // Show CT scan section after thrombolysis card animation (600ms total)
-        setTimeout(() => {
-            ctSection.classList.add('active');
-        }, 600); 
-    }
+    // Show result based on selection
+    setTimeout(() => {
+        if (selectedOption === 'present') {
+            thrombectomyResult.classList.add('active');
+        } else {
+            managementResult.classList.add('active');
+        }
+    }, 300);
 }
 
 // Handle vessel occlusion choice
