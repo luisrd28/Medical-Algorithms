@@ -50,16 +50,18 @@ body {
     border: 2px solid #48cae4;
 }
 
-/* Mobile Responsiveness */
+/* In mobile media query */
 @media (max-width: 768px) {
     .author-container {
-        flex-direction: column;
-        text-align: center;
+        flex-direction: row; /* Keep in a row even on mobile */
+        gap: 10px;
+        margin-bottom: 1.5rem;
     }
     
     .profile-pic {
         width: 40px;
         height: 40px;
+        display: block; /* Ensure it's visible */
     }
 }
 
@@ -297,6 +299,34 @@ body {
     color: #000;
 }
 
+/* Replace existing mobile rule */
+@media (max-width: 768px) {
+    .button-container {
+        flex-direction: row; /* Keep buttons side by side */
+        gap: 10px; /* Smaller gap */
+    }
+    
+    .criteria-btn, .dosing-btn {
+        width: auto; /* Don't force full width */
+        padding: 12px 20px; /* Adjust padding */
+    }
+}
+
+.arrow {
+    text-align: center; /* Center the arrow */
+    font-size: 40px;
+    margin: 20px 0;
+    display: flex;
+    justify-content: center; /* Horizontal centering */
+}
+
+/* Mobile adjustment */
+@media (max-width: 768px) {
+    .arrow {
+        font-size: 30px; /* Smaller arrow */
+    }
+}
+
 /* Vessel Options */
 .vessel-options {
     display: flex;
@@ -419,3 +449,4 @@ body {
     pointer-events: none;
     transition: all 0.3s ease !important;
 }
+
