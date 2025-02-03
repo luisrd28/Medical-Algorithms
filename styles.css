@@ -356,3 +356,33 @@ body {
         gap: 10px;
     }
 }
+/* Button container for side-by-side layout */
+.button-container {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+    flex-wrap: wrap; /* Wrap to new line on mobile */
+}
+
+/* New dosing button */
+.dosing-btn {
+    background: #8ecae6; /* Light blue */
+    color: #000;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s all ease;
+}
+
+.dosing-btn:hover {
+    transform: scale(1.02);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .button-container {
+        flex-direction: column; /* Stack buttons vertically */
+    }
+}
