@@ -36,7 +36,7 @@ function handleVesselOption(selectedOption) {
         }
     });
 
-    // Show result
+    // Show result after 300ms (time for button to fade out)
     setTimeout(() => {
         if (selectedOption === 'present') {
             thrombectomyResult.classList.add('active');
