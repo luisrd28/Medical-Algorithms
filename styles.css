@@ -260,18 +260,21 @@ body {
 
 /* Results */
 .result-text {
-    position: fixed;
-    bottom: -100px;
+    position: relative; /* Changed from fixed */
+    bottom: unset; /* Remove fixed positioning */
+    opacity: 0;
+    transform: translateY(50px);
     width: 100%;
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 1.2rem; /* Reduced from 1.5rem */
+    margin: 20px 0; /* Adds space below buttons */
     transition: 0.5s all ease;
 }
 
 .result-text.active {
-    bottom: 50px;
+    opacity: 1;
+    transform: translateY(0); /* Slides up from below */
 }
-
 
 /* Modal */
 .modal {
