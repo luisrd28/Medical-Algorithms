@@ -283,20 +283,69 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.9);
+    background: rgba(0, 0, 0, 0.9);
     z-index: 1000;
+    overflow-y: auto; /* Enable scrolling */
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    overflow-y: auto; /* Enable scrolling */
 }
 
 .modal-content {
     position: relative;
-    margin: 5% auto;
+    background: #000;
+    margin: 50px auto; /* Adds space at the top */
+    padding: 40px 20px 20px 20px; /* Top padding for close button */
     width: 90%;
     max-width: 800px;
+    border-radius: 10px;
 }
 
+/* Close Button */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: white;
+    font-size: 40px; /* Larger size */
+    font-weight: 300;
+    cursor: pointer;
+    padding: 0 10px;
+    transition: 0.3s all ease;
+}
+
+.close:hover {
+    color: #ff4d6d; /* Accent color on hover */
+}
+
+/* Image Scaling */
 .modal-content img {
     width: 100%;
     height: auto;
+    max-height: 80vh; /* Limits image height for scrolling */
+    object-fit: contain; /* Prevents distortion */
+}
+
+/* Mobile Modal Adjustments */
+@media (max-width: 768px) {
+    .modal-content img {
+        max-height: 90vh; /* More height on mobile */
+    }
+
+    .close {
+        font-size: 35px;
+        right: 15px;
+    }
 }
 
 /* Animations */
