@@ -28,8 +28,39 @@ body {
 .subtitle {
     font-weight: 500;
     font-size: 1.2rem;
+    color: #ffffff;
+    margin-bottom: 0; /* Remove original bottom margin */
+}
+
+/* Author Container */
+.author-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
     margin-bottom: 2rem;
-    color: #ffffff; /* White text */
+    justify-content: center;
+}
+
+/* Profile Picture */
+.profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #48cae4;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .author-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .profile-pic {
+        width: 40px;
+        height: 40px;
+    }
 }
 
 .browse-button {
