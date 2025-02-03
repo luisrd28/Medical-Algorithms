@@ -64,19 +64,12 @@ body {
     position: fixed;
     top: 20px;
     left: 20px;
-    color: #48cae4; /* Updated color */
-    background: none;
-    border: none;
-    font-size: 1.2rem;
-    cursor: pointer;
+    color: #48cae4;
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    padding: 10px 15px;
+    border-radius: 25px;
     z-index: 1000;
-    text-decoration: none; /* Remove underline */
-    font-weight: 500; /* Semi-bold */
-    display: flex;
-    align-items: center;
-    gap: 5px;
 }
-
 .back-button:hover {
     opacity: 0.8;
     color: #48cae4 !important; /* Keep color consistent on hover */
@@ -162,10 +155,10 @@ body {
     z-index: 100;
 }
 
-/* Algorithm Container */
-/* Add these rules */
 .algorithm-container {
-  position: relative; /* Makes absolute positioning relative to this container */
+    max-width: 800px;
+    margin: 100px auto 20px; /* Increased top margin to avoid back button */
+    padding: 20px;
 }
 
 /* Reset CT section positioning */
@@ -472,5 +465,28 @@ body {
 @media (max-width: 768px) {
     .button-container {
         flex-direction: column; /* Stack buttons vertically */
+    }
+}
+
+/* Initial Step (Time Options) */
+#step1 {
+    margin-top: 40px; /* Push options down */
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .algorithm-container {
+        margin: 80px auto 20px; /* Less top margin on mobile */
+    }
+
+    #step1 {
+        margin-top: 30px; /* Smaller spacing for mobile */
+    }
+
+    .back-button {
+        top: 10px;
+        left: 10px;
+        padding: 8px 12px;
+        font-size: 1rem;
     }
 }
