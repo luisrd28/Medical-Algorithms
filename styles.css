@@ -232,6 +232,10 @@ body {
 .slide-card:not(.active) + .slide-up-section {
     margin-top: -30px; /* Pull up when thrombolysis card is hidden */
 }
+/* Add this new rule */
+.slide-up-section.no-thrombolysis {
+    margin-top: -50px !important; /* Pulls the CT section upward */
+}
 
 .ct-text {
     text-align: center;
@@ -245,6 +249,11 @@ body {
         max-width: 800px; /* Match container width */
         margin-left: auto;
         margin-right: auto;
+    }
+}
+@media (max-width: 768px) {
+    .slide-up-section.no-thrombolysis {
+        margin-top: -30px !important; /* Smaller adjustment for mobile */
     }
 }
 
