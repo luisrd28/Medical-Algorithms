@@ -21,11 +21,9 @@ function handleTimeOption(option) {
         if (option === 'lt4.5') {
             thrombolysisCard.classList.add('active');
             ctSection.classList.add('active');
+            ctSection.classList.remove('no-thrombolysis'); // Reset class
         } else if (option === '4.5-24') {
-            // ====== ADD THIS ======
-            ctSection.style.marginTop = '0'; // Remove default spacing
-            ctSection.classList.add('active');
-            // ======================
+            ctSection.classList.add('active', 'no-thrombolysis'); // Add class
         }
     }, 300);
 }
@@ -65,10 +63,7 @@ function goBack() {
                 opt.classList.remove('fade-out');
             });
             thrombolysisCard.classList.remove('active');
-            ctSection.classList.remove('active');
-            // ====== ADD THIS ======
-            ctSection.style.marginTop = ''; // Reset to CSS default
-            // ======================
+            ctSection.classList.remove('active', 'no-thrombolysis'); // Reset class
             break;
             
         case 'ct-section':
