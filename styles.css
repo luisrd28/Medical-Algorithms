@@ -221,9 +221,16 @@ body {
     margin-top: 20px;
 }
 
-.slide-up-section.active {
-    opacity: 1;
-    transform: translateY(0);
+.slide-up-section {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: 0.5s all ease;
+    margin-top: 20px; /* Default spacing */
+}
+
+/* Add this new rule */
+.slide-card:not(.active) + .slide-up-section {
+    margin-top: -30px; /* Pull up when thrombolysis card is hidden */
 }
 
 .ct-text {
