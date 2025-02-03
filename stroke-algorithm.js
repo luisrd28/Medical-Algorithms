@@ -10,25 +10,23 @@ const managementResult = document.getElementById('management-result');
 
 // Handle time selection
 function handleTimeOption(option) {
-    history.push('time-options'); // Track step
+    history.push('time-options');
 
-    // Fade out unselected time options
     document.querySelectorAll('.time-option').forEach(opt => {
         const isSelected = opt.getAttribute('onclick').includes(`'${option}'`);
         if (!isSelected) opt.classList.add('fade-out');
     });
 
-    // Handle pathway based on selection
     setTimeout(() => {
         if (option === 'lt4.5') {
-            // Show thrombolysis card + CT section
             thrombolysisCard.classList.add('active');
             ctSection.classList.add('active');
         } else if (option === '4.5-24') {
-            // Skip thrombolysis, show CT section directly
+            // ====== ADD THIS ======
+            ctSection.style.marginTop = '0'; // Remove default spacing
             ctSection.classList.add('active');
+            // ======================
         }
-        // Add 'gt24' logic later
     }, 300);
 }
 
@@ -68,6 +66,9 @@ function goBack() {
             });
             thrombolysisCard.classList.remove('active');
             ctSection.classList.remove('active');
+            // ====== ADD THIS ======
+            ctSection.style.marginTop = ''; // Reset to CSS default
+            // ======================
             break;
             
         case 'ct-section':
