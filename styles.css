@@ -260,14 +260,13 @@ body {
 
 /* Results */
 .result-text {
-    position: relative; /* Changed from fixed */
-    bottom: unset; /* Remove fixed positioning */
+    position: relative;
     opacity: 0;
-    transform: translateY(50px);
+    transform: translateY(20px); /* Smaller slide-up distance */
     width: 100%;
     text-align: center;
-    font-size: 1.2rem; /* Reduced from 1.5rem */
-    margin: 20px 0; /* Adds space below buttons */
+    font-size: 1.2rem;
+    margin: 25px 0; /* Uniform spacing */
     transition: 0.5s all ease;
 }
 
@@ -337,4 +336,23 @@ body {
     padding: 0;
     margin: 0;
     transition: all 0.3s ease;
+}
+/* Mobile Responsiveness (Add this at the end of styles.css) */
+@media (max-width: 768px) {
+    /* Increase spacing below buttons for results */
+    .result-text {
+        margin: 30px 0 !important; /* More space on mobile */
+        font-size: 1.1rem; /* Smaller text for mobile */
+    }
+
+    /* Adjust CT section spacing */
+    .slide-up-section {
+        margin-top: 15px; /* Reduce space between sections */
+    }
+
+    /* Ensure vessel buttons don’t overflow */
+    .vessel-options {
+        flex-direction: column;
+        gap: 10px;
+    }
 }
