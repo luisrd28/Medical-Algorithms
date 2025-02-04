@@ -22,15 +22,17 @@
         </div>
 
         <!-- ======= NEW CONTAINER ADDED HERE ======= -->
-        <div id="pathway-container">
-            <!-- Thrombolysis Card -->
+        <<div id="pathway-container">
+    <!-- Thrombolysis Card -->
             <div id="thrombolysis-card" class="slide-card">
                 <h3>Administer thrombolysis if eligible</h3>
-                <button class="criteria-btn" onclick="showImageModal('images/criteria-image.jpg')">Check criteria</button>
-                <button class="dosing-btn" onclick="showImageModal('images/alteplase.png')">Alteplase</button>
+                <div class="button-container">
+                    <button class="criteria-btn" onclick="showImageModal('images/criteria-image.jpg')">Check criteria</button>
+                    <button class="dosing-btn" onclick="showImageModal('images/alteplase.png')">Alteplase</button>
+                </div>
             </div>
 
-            <!-- CT Scan Section -->
+    <!-- CT Scan Section -->
             <div id="ct-section" class="slide-up-section">
                 <div class="arrow">↓</div>
                 <p class="ct-text">Obtain CT of head and neck</p>
@@ -38,15 +40,12 @@
                     <button class="vessel-btn" onclick="handleVesselOption('present')">Large vessel occlusion present</button>
                     <button class="vessel-btn" onclick="handleVesselOption('absent')">Large vessel occlusion absent</button>
                 </div>
-                <!-- Results -->
                 <div id="thrombectomy-result" class="result-text">Perform mechanical thrombectomy</div>
-                <div id="management-result" class="result-text">Standard post-ischemic stroke management</div>
             </div>
-        </div>
-        <!-- ======= END OF NEW CONTAINER ======= -->
 
-        <div id="management-result" class="result-text">Standard post-ischemic stroke management</div>
-</div>
+    <!-- Standalone Management Result -->
+            <div id="management-result" class="result-text">Standard post-ischemic stroke management</div>
+        </div>
         
         <!-- Image Modal -->
         <div id="image-modal" class="modal">
