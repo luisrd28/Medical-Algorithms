@@ -8,6 +8,7 @@ const ctSection = document.getElementById('ct-section');
 const thrombectomyResult = document.getElementById('thrombectomy-result');
 const managementResult = document.getElementById('management-result');
 const pathwayContainer = document.getElementById('pathway-container'); // Added
+const managementResult = document.getElementById('management-result');
 
 // Handle time since onset selection
 function handleTimeOption(option) {
@@ -19,7 +20,7 @@ function handleTimeOption(option) {
     if (!isSelected) opt.classList.add('fade-out');
   });
 
-  // Reset all pathway elements
+  // Hide all pathway elements first
   thrombolysisCard.classList.remove('active');
   ctSection.classList.remove('active');
   thrombectomyResult.classList.remove('active');
@@ -82,7 +83,7 @@ function goBack() {
       thrombolysisCard.classList.remove('active');
       ctSection.classList.remove('active');
       pathwayContainer.classList.remove('no-thrombolysis');
-      managementResult.classList.remove('active'); // Add this line
+      managementResult.classList.remove('active');
       break;
       
     case 'ct-section':
@@ -90,7 +91,6 @@ function goBack() {
         btn.classList.remove('fade-out');
       });
       thrombectomyResult.classList.remove('active');
-      managementResult.classList.remove('active');
       break;
   }
 }
