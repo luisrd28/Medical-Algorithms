@@ -1,7 +1,7 @@
 // Navigation history tracker
 let history = [];
 
-// Element references - Fixed duplicate declaration
+// Element references
 const step1 = document.getElementById('step1');
 const thrombolysisCard = document.getElementById('thrombolysis-card');
 const ctSection = document.getElementById('ct-section');
@@ -42,7 +42,7 @@ function handleTimeOption(option) {
   }, 300);
 }
 
-// Handle vessel occlusion choice - Fixed management result conflict
+// Handle vessel occlusion choice - FIXED FOR 4.5-24hr PATHWAY
 function handleVesselOption(selectedOption) {
   history.push('ct-section');
   const vesselButtons = document.querySelectorAll('.vessel-btn');
@@ -58,16 +58,15 @@ function handleVesselOption(selectedOption) {
   setTimeout(() => {
     if (selectedOption === 'present') {
       thrombectomyResult.classList.add('active');
+      managementResult.classList.remove('active');
     } else {
-      // Only show management result if not in >24hrs pathway
-      if (!pathwayContainer.classList.contains('no-thrombolysis')) {
-        managementResult.classList.add('active');
-      }
+      thrombectomyResult.classList.remove('active');
+      managementResult.classList.add('active'); // Always show management
     }
   }, 300);
 }
 
-// Back button functionality - Fixed management result cleanup
+// Back button functionality - IMPROVED CLEANUP
 function goBack() {
   if (history.length === 0) {
     window.location.href = 'browse.html';
@@ -78,7 +77,7 @@ function goBack() {
   
   switch(lastStep) {
     case 'time-options':
-      // Reset to initial state
+      // Reset all elements
       document.querySelectorAll('.time-option').forEach(opt => {
         opt.classList.remove('fade-out');
       });
@@ -86,6 +85,7 @@ function goBack() {
       ctSection.classList.remove('active');
       pathwayContainer.classList.remove('no-thrombolysis');
       managementResult.classList.remove('active');
+      thrombectomyResult.classList.remove('active');
       break;
       
     case 'ct-section':
@@ -94,7 +94,7 @@ function goBack() {
         btn.classList.remove('fade-out');
       });
       thrombectomyResult.classList.remove('active');
-      managementResult.classList.remove('active'); // Added this line
+      managementResult.classList.remove('active');
       break;
   }
 }
