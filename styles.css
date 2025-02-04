@@ -486,11 +486,15 @@ body {
 }
 
 /* Add this to your CSS */
+/* Add to existing CSS */
 #management-result {
   margin-top: 30px;
-  padding: 20px;
-  background: #2a2a2a;
-  border-radius: 15px;
+  text-align: center;
+}
+
+.result-text.active {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
 }
 
 @media (max-width: 768px) {
