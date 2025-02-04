@@ -24,15 +24,19 @@ function handleTimeOption(option) {
     pathwayContainer.classList.remove('no-thrombolysis'); // Reset
     
     if (option === 'lt4.5') {
-      // Show thrombolysis card + CT section
       thrombolysisCard.classList.add('active');
       ctSection.classList.add('active');
+      managementResult.classList.remove('active'); // Reset management text
     } else if (option === '4.5-24') {
-      // Skip thrombolysis card
       pathwayContainer.classList.add('no-thrombolysis');
       ctSection.classList.add('active');
+      managementResult.classList.remove('active'); // Reset management text
+    } else if (option === 'gt24') {
+      pathwayContainer.classList.add('no-thrombolysis');
+      managementResult.classList.add('active'); // Show management text
+      ctSection.classList.remove('active'); // Hide CT section
+      thrombolysisCard.classList.remove('active'); // Hide thrombolysis card
     }
-    // Add 'gt24' logic later
   }, 300);
 }
 
@@ -69,17 +73,17 @@ function goBack() {
   
   switch(lastStep) {
     case 'time-options':
-      // Reset to initial state
+      // Reset all elements
       document.querySelectorAll('.time-option').forEach(opt => {
         opt.classList.remove('fade-out');
       });
       thrombolysisCard.classList.remove('active');
       ctSection.classList.remove('active');
-      pathwayContainer.classList.remove('no-thrombolysis'); // Reset container
+      pathwayContainer.classList.remove('no-thrombolysis');
+      managementResult.classList.remove('active'); // Add this line
       break;
       
     case 'ct-section':
-      // Reset to CT scan step
       document.querySelectorAll('.vessel-btn').forEach(btn => {
         btn.classList.remove('fade-out');
       });
