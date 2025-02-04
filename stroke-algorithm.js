@@ -1,14 +1,13 @@
 // Navigation history tracker
 let history = [];
 
-// Element references
+// Element references - Fixed duplicate declaration
 const step1 = document.getElementById('step1');
 const thrombolysisCard = document.getElementById('thrombolysis-card');
 const ctSection = document.getElementById('ct-section');
 const thrombectomyResult = document.getElementById('thrombectomy-result');
 const managementResult = document.getElementById('management-result');
-const pathwayContainer = document.getElementById('pathway-container'); // Added
-const managementResult = document.getElementById('management-result');
+const pathwayContainer = document.getElementById('pathway-container');
 
 // Handle time since onset selection
 function handleTimeOption(option) {
@@ -43,7 +42,7 @@ function handleTimeOption(option) {
   }, 300);
 }
 
-// Handle vessel occlusion choice
+// Handle vessel occlusion choice - Fixed management result conflict
 function handleVesselOption(selectedOption) {
   history.push('ct-section');
   const vesselButtons = document.querySelectorAll('.vessel-btn');
@@ -60,12 +59,15 @@ function handleVesselOption(selectedOption) {
     if (selectedOption === 'present') {
       thrombectomyResult.classList.add('active');
     } else {
-      managementResult.classList.add('active');
+      // Only show management result if not in >24hrs pathway
+      if (!pathwayContainer.classList.contains('no-thrombolysis')) {
+        managementResult.classList.add('active');
+      }
     }
   }, 300);
 }
 
-// Back button functionality
+// Back button functionality - Fixed management result cleanup
 function goBack() {
   if (history.length === 0) {
     window.location.href = 'browse.html';
@@ -76,7 +78,7 @@ function goBack() {
   
   switch(lastStep) {
     case 'time-options':
-      // Reset all elements
+      // Reset to initial state
       document.querySelectorAll('.time-option').forEach(opt => {
         opt.classList.remove('fade-out');
       });
@@ -87,15 +89,17 @@ function goBack() {
       break;
       
     case 'ct-section':
+      // Reset CT scan step
       document.querySelectorAll('.vessel-btn').forEach(btn => {
         btn.classList.remove('fade-out');
       });
       thrombectomyResult.classList.remove('active');
+      managementResult.classList.remove('active'); // Added this line
       break;
   }
 }
 
-// Image modal functions (keep these unchanged)
+// Image modal functions
 function showImageModal(imagePath) {
   document.getElementById('modal-image').src = imagePath;
   document.getElementById('image-modal').style.display = 'block';
