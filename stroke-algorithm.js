@@ -19,23 +19,25 @@ function handleTimeOption(option) {
     if (!isSelected) opt.classList.add('fade-out');
   });
 
+  // Reset all pathway elements
+  thrombolysisCard.classList.remove('active');
+  ctSection.classList.remove('active');
+  thrombectomyResult.classList.remove('active');
+  managementResult.classList.remove('active');
+
   // Show appropriate pathway
   setTimeout(() => {
-    pathwayContainer.classList.remove('no-thrombolysis'); // Reset
+    pathwayContainer.classList.remove('no-thrombolysis');
     
     if (option === 'lt4.5') {
       thrombolysisCard.classList.add('active');
       ctSection.classList.add('active');
-      managementResult.classList.remove('active'); // Reset management text
     } else if (option === '4.5-24') {
       pathwayContainer.classList.add('no-thrombolysis');
       ctSection.classList.add('active');
-      managementResult.classList.remove('active'); // Reset management text
     } else if (option === 'gt24') {
       pathwayContainer.classList.add('no-thrombolysis');
-      managementResult.classList.add('active'); // Show management text
-      ctSection.classList.remove('active'); // Hide CT section
-      thrombolysisCard.classList.remove('active'); // Hide thrombolysis card
+      managementResult.classList.add('active');
     }
   }, 300);
 }
